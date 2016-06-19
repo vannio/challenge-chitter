@@ -8,7 +8,7 @@ class Chitter < Sinatra::Base
     erb(:"peep/new")
   end
 
-  post "/peeps" do
+  post "/peeps/new" do
     peep = Peep.create(
       text: params[:text],
       timestamp: Time.now,
@@ -19,7 +19,7 @@ class Chitter < Sinatra::Base
       Peep.extract_hashtags(peep)
       redirect("/peeps")
     else
-      flash[:error] = peep.errors.full_messages
+      flash.next[:error] = peep.errors.full_messages
       redirect("/peeps/new")
     end
   end
