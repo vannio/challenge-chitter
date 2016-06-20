@@ -23,7 +23,7 @@ class Formatter
 
     def linkify_hashtags_and_usernames
       @text.gsub!(/(\#|\@)\w+/) do |text|
-        "<a href=\"/#{ text[0] == "#" ? "hashtag/" : "user/profile/" }"\
+        "<a href=\"/#{ text[0] == "#" ? "hashtag/" : "users/profile/" }"\
         "#{ text[1..text.size] }\">#{ text }</a> "
       end
     end
