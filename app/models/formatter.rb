@@ -12,17 +12,18 @@ class Formatter
 
     def sanitize
       @text.gsub!(/\</, "&lt;")
+      @text.gsub!(/\>/, "&gt;")
     end
 
     def linkify_urls
       @text.gsub!(/http\S+/) do |text|
-        " <a href=\"#{ text }\" target=\"_blank\">#{ text }</a> "
+        "<a href=\"#{ text }\" target=\"_blank\">#{ text }</a> "
       end
     end
 
     def linkify_hashtags_and_usernames
       @text.gsub!(/(\#|\@)\w+/) do |text|
-        " <a href=\"/#{ text[0] == "#" ? "hashtag/" : "user/profile/" }"\
+        "<a href=\"/#{ text[0] == "#" ? "hashtag/" : "user/profile/" }"\
         "#{ text[1..text.size] }\">#{ text }</a> "
       end
     end

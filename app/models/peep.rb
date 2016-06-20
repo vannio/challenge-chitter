@@ -10,7 +10,7 @@ class Peep
 
   def extract_hashtags
     self.text.gsub(/\#\w+/) do |text|
-      hashtag = Hashtag.first_or_create(name: text[1..text.size])
+      hashtag = Hashtag.first_or_create(name: text[1..text.size].downcase)
       HashtagPeep.create(hashtag: hashtag, peep: self)
     end
   end
