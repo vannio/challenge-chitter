@@ -1,7 +1,7 @@
 feature "User profile" do
   scenario "can view a user's name and username on their profile page" do
     create_user
-    visit("/user/profile/vannio")
+    visit("/users/profile/vannio")
     expect(page).to have_content("Van")
     expect(page).to have_content("vannio")
   end
@@ -13,7 +13,7 @@ feature "User profile" do
       user: create_user
     )
 
-    visit("/user/profile/vannio")
+    visit("/users/profile/vannio")
 
     within find(".timeline") do
       expect(page).to have_content("example peep")
@@ -21,7 +21,7 @@ feature "User profile" do
   end
 
   scenario "non-existent users don't have profile page" do
-    visit("/user/profile/vannio")
+    visit("/users/profile/vannio")
     expect(page).to have_content("User not found")
   end
 end

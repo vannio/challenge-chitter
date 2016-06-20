@@ -13,5 +13,13 @@ class Chitter < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def pretty_time(string)
+      string.strftime("%A %d %B %Y, %H:%M")
+    end
+
+    def can_reply_to_peep(peep)
+      current_user && current_user != peep.user
+    end
   end
 end

@@ -8,14 +8,14 @@ class Chitter < Sinatra::Base
     erb(:"peep/new")
   end
 
-  post "/peeps/new" do
+  post "/peeps" do
     peep = Peep.create(
       text: params[:text],
       timestamp: Time.now,
       user: current_user
     )
 
-    if current_user && peep.id
+    if peep.id
       peep.extract_hashtags
       redirect("/peeps")
     else
