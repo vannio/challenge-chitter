@@ -8,9 +8,7 @@ describe Peep do
         timestamp: Time.new(2000, 01, 01),
         user: user
       )
-
-      p peep
-
+      
       expect { peep.extract_hashtags }.to change { Hashtag.all.count }.by(1)
     end
   end

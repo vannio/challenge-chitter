@@ -21,5 +21,9 @@ class Chitter < Sinatra::Base
     def can_reply_to_peep(peep)
       current_user && current_user != peep.user
     end
+
+    def format_html(string)
+      Formatter.html(string)
+    end
   end
 end

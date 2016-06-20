@@ -17,7 +17,7 @@ class Chitter < Sinatra::Base
 
   get "/users/profile/:username" do
     user = User.first(username: params[:username])
-    peeps = user ? user.peeps : []
+    peeps = user ? user.peeps(order: [:timestamp.desc]) : []
     peep_list = partial(:"peep/peep", locals: { peeps: peeps })
     erb(:"user/index", locals: { peep_formatted_list: peep_list, user: user })
   end
