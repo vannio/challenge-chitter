@@ -14,7 +14,6 @@ feature "User registration" do
     fill_in(:password_confirm, with: password)
 
     expect{ click_button(:Register) }.to change{ User.all.count }.by(1)
-    expect(current_path).to eq("/")
   end
 
   scenario "user cannot register existing username" do

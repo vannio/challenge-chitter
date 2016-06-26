@@ -1,7 +1,11 @@
 class Formatter
   class << self
-    def html(text)
-      @text = text
+    def date_time(string)
+      string.strftime("%A %d %B %Y, %H:%M")
+    end
+
+    def html(string)
+      @text = string
       sanitize
       linkify_urls
       linkify_hashtags_and_usernames
