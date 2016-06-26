@@ -5,7 +5,7 @@ class User
 
   property(:id, Serial)
   property(
-    :username, String, required: true, unique: true, format: /[a-zA-Z0-9_]{5,20}/,
+    :username, String, required: true, unique: true, format: /[a-z0-9_]{5,20}/,
     messages: {
       format: "Invalid username: must consist of underscores, letters or "\
               "numbers and be between 5 and 20 characters long"

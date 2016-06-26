@@ -4,7 +4,13 @@ class Chitter < Sinatra::Base
   end
 
   post "/users" do
-    user = User.create(user_params)
+    user = User.create({
+      email: params[:email],
+      name: params[:name],
+      username: params[:username].downcase,
+      password: params[:password],
+      password_confirm: params[:password_confirm]
+    });
 
     if user.id
       session[:user_id] = user.id
@@ -16,14 +22,9 @@ class Chitter < Sinatra::Base
   end
 
   get "/users/profile/:username" do
-    user = User.first(username: params[:username])
+    user = User.first(username: params[:username].downcase)
     peeps = user ? user.peeps(order: [:timestamp.desc]) : []
     peep_list = partial(:"peep/peep", locals: { peeps: peeps })
     erb(:"user/index", locals: { peep_formatted_list: peep_list, user: user })
-  end
-
-  def user_params
-    allowed_params = [:email, :name, :username, :password, :password_confirm]
-    params.select { |param| allowed_params.include?(param.to_sym) }
   end
 end
