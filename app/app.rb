@@ -5,7 +5,7 @@ require "sinatra/flash"
 require "sinatra/partial"
 
 require_relative "data_mapper_setup"
-
+require_relative "helpers"
 require_relative "server"
 require_relative "controllers/main"
 require_relative "controllers/users"
