@@ -3,7 +3,7 @@
     <p class="peep-meta">
       <a href="/users/profile/<%= peep.user.username %>" class="name"><%= peep.user.name %></a>
       <span class="time">on <%= format_date_time(peep.timestamp) %></span>
-      <% if can_reply_to_peep(peep) %>
+      <% if can_reply_to_peep?(peep) %>
       <a href="/peeps/new?text=&#64;<%= peep.user.username %>" class="reply">Reply</a>
       <% end %>
     </p>
