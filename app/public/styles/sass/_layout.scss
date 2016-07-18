@@ -23,8 +23,12 @@ header {
 }
 
 footer {
-  padding: ($nav-height * 2) 0 ($nav-height);
+  padding: ($nav-height * 2) 1rem ($nav-height);
   text-align: center;
+
+  p {
+    font-size: 0.8rem;
+  }
 }
 
 .wrapper {
