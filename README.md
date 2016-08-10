@@ -1,5 +1,38 @@
 # Chitter Challenge
 
+A clone of the popular social media site, Twitter. Built with Ruby and Sinatra.
+
+![homepage](/screenshots/screen-1.png)
+
+![register](/screenshots/screen-2.png)
+
+## Getting Started
+1. Clone or download this repo and `cd` into it
+1. Run `bundle install` to install the necessary gems
+1. Install `postgres` with `brew`, by running `brew install postgresql`
+1. Create two new databases on `postgres`: `chitter_development` and `chitter_test`
+1. Run `rake db:seed` to fill the database with Jaden Smith 'peeps'
+
+#### Testing the tests
+1. Run `rspec` to check tests are passing
+1. Pop open the champagne when everything is green
+
+#### Serving the server
+1. Run `rackup -p 4567` to start the server
+1. Go to [http://localhost:4567](http://localhost:4567)
+
+## Branches
+`master` branch has the bare bones, functioning-as-the-user-stories-request version
+
+`bonus` branch has extra features:
+- html formatted 'peeps', with urls, @ and # turned into links
+- extremely light (possibly ineffective) html-tag sanitization
+- filter peeps by user
+- filter peeps by hashtag
+- additional form validation, eg. 140 char limit on peeps, alphanumeric usernames
+
+---
+
 ## Task
 Create a Twitter clone that will allow the users to post messages to a public stream
 
@@ -38,28 +71,3 @@ I want to see the time at which it was made
 - Use data mapper and postgres to save the data.
 - You don't have to be logged in to see the peeps.
 - You only can peep if you are logged in.
-
-## Getting Started
-1. Clone or download this repo and `cd` into it
-1. Run `bundle install` to install the necessary gems
-1. Install `postgres` with `brew`, by running `brew install postgresql`
-1. Create two new databases on `postgres`: `chitter_development` and `chitter_test`
-1. Run `rake db:seed` to fill the database with Jaden Smith 'peeps'
-
-#### Testing the tests
-1. Run `rspec` to check tests are passing
-1. Pop open the champagne when everything is green
-
-#### Serving the server
-1. Run `rackup -p 4567` to start the server
-1. Go to [http://localhost:4567](http://localhost:4567)
-
-## Branches
-`master` branch has the bare bones, functioning-as-the-user-stories-request version
-
-`bonus` branch has extra features:
-- html formatted 'peeps', with urls, @ and # turned into links
-- extremely light (possibly ineffective) html-tag sanitization
-- filter peeps by user
-- filter peeps by hashtag
-- additional form validation, eg. 140 char limit on peeps, alphanumeric usernames
